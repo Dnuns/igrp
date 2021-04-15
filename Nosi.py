@@ -13,7 +13,7 @@ IIª PARTE:
 IIIª PARTE:
     *fazer upload com inputs de dados introduzidos na folha de cálculo baixado
 '''
-
+import config
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.ui import WebDriverWait
@@ -34,10 +34,10 @@ for i in range (0,2): # fazer login
 
     esperar_login = WebDriverWait(browser, 10)
     utilizador = esperar_login.until(EC.element_to_be_clickable((By.NAME, 'p_login')))
-    browser.find_element_by_name('p_login').send_keys('David.Nunes')
+    browser.find_element_by_name('p_login').send_keys(config.username)
     Keys.TAB
     password = esperar_login.until(EC.element_to_be_clickable((By.NAME, 'p_password')))
-    browser.find_element_by_name('p_password').send_keys('Davsrs2021')
+    browser.find_element_by_name('p_password').send_keys(config.password)
     browser.find_element_by_name('p_button').click()
 
 browser.find_element_by_class_name('title-desc').click()

@@ -8,7 +8,7 @@ Iª PARTE:
     *+ir para o campo de escrever o sumário
 
 '''
-
+import config
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.ui import WebDriverWait
@@ -28,10 +28,10 @@ for i in range (0,2): # fazer login
 
     esperar_login = WebDriverWait(browser, 20)
     utilizador = esperar_login.until(EC.element_to_be_clickable((By.NAME, 'p_login')))
-    browser.find_element_by_name('p_login').send_keys('David.Nunes')
+    browser.find_element_by_name('p_login').send_keys(config.username)
     Keys.TAB
     password = esperar_login.until(EC.element_to_be_clickable((By.NAME, 'p_password')))
-    browser.find_element_by_name('p_password').send_keys('Davesrs2021')
+    browser.find_element_by_name('p_password').send_keys(config.password)
     browser.find_element_by_name('p_button').click()
     browser.implicitly_wait(20)
 
