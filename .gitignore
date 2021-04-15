@@ -104,5 +104,6 @@ $RECYCLE.BIN/
 *.gz
 *.log
 config.py
+__pycache__
 
 # End of https://www.toptal.com/developers/gitignore/api/vscode,vim,linux,windows,macos
