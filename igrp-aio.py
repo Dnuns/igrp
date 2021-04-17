@@ -1,17 +1,17 @@
 '''
-Esta é a minha segunda automação em python. O que o programa faz:
+O que o programa faz:
 
-Iª PARTE:
-    *+ entrar no site da nosi;
-    *+ colocar o utilizador e a password;
-    *+ entrar no SIGE (Sistema Integrado de Gestao Escolar);
+    Iª PARTE:
+        *+ entrar no site da nosi;
+        *+ colocar o utilizador e a password;
+        *+ entrar no SIGE (Sistema Integrado de Gestao Escolar);
 
-IIª PARTE:
-    * fazer download da lista dos alunos por turma;
-    * mostrar output numa folha de calculos (se possível organizado e formatado)
+    IIª PARTE:
+        * fazer download da lista dos alunos por turma;
+        * mostrar output numa folha de calculos (se possível organizado e formatado)
 
-IIIª PARTE:
-    *fazer upload com inputs de dados introduzidos na folha de cálculo baixado
+    IIIª PARTE:
+        *fazer upload com inputs de dados introduzidos na folha de cálculo baixado
 '''
 import config
 from selenium import webdriver
