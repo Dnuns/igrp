@@ -36,7 +36,7 @@ def login():
 
         button = wait_login.until(EC.element_to_be_clickable((By.NAME, 'p_button')))
         browser.find_element_by_name('p_button').click()
-        sleep(2)
+        sleep(3)
 
 
 def summary_page():
