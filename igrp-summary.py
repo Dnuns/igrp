@@ -1,10 +1,10 @@
 '''
-Esta é a minha segunda automação em python. O que o programa faz:
+O que o script faz:
 
     + entrar no site da nosi;
     + colocar o utilizador e a password;
     + entrar no SIGE (Sistema Integrado de Gestao Escolar);
-    +ir para o campo de escrever o sumário
+    + ir para o campo de escrever o sumário
 
 '''
 import config
