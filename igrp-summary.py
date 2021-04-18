@@ -57,11 +57,11 @@ def summary_page():
         menu_gestao_disciplina = wait_menu.until(EC.element_to_be_clickable((By.LINK_TEXT,'Gestão de Disciplina')))
         browser.find_element_by_link_text('Gestão de Disciplina').click()
 
-        # Menu principal do professor
+        #Menu principal do professor
         menu_p_professor = wait_menu.until(EC.element_to_be_clickable((By.LINK_TEXT,'Menu Principal Professor')))
         browser.find_element_by_link_text('Menu Principal Professor').click()
 
-        # menu sala de aula
+        #menu sala de aula
         sala_aula = wait_menu.until(EC.element_to_be_clickable((By.LINK_TEXT,'Sala Aula')))
         browser.find_element_by_link_text('Sala Aula').click()
 
@@ -71,7 +71,6 @@ def summary_page():
 
     except TimeoutException:
         print("Timed out waiting for summary_page to load")
-
 
 #Init the script
 login()
