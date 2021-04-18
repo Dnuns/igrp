@@ -4,7 +4,6 @@ What the script does:
     + place the user and password;
     + go to SIGE (Sistema Integrado de Gestao Escolar | Integrated School Management System);
     + Go to the field write summary
-
 '''
 import config
 from selenium import webdriver
