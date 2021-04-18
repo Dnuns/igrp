@@ -1,10 +1,9 @@
 '''
-O que o script faz:
-
-    + entrar no site da nosi;
-    + colocar o utilizador e a password;
-    + entrar no SIGE (Sistema Integrado de Gestao Escolar);
-    + ir para o campo de escrever o sumário
+What the script does:
+    + sign in to Nosi's website;
+    + place the user and password;
+    + go to SIGE (Sistema Integrado de Gestao Escolar | Integrated School Management System);
+    + Go to the field write summary
 
 '''
 import config
@@ -37,7 +36,7 @@ def login():
 
             button = wait_login.until(EC.element_to_be_clickable((By.NAME, 'p_button')))
             browser.find_element_by_name('p_button').click()
-            sleep(2)
+            sleep(4)
 
         except TimeoutException:
             print("Timed out waiting for login page to load")
@@ -55,20 +54,20 @@ def summary_page():
         browser.find_element_by_id('side-bar-ctrl').click()
 
         #Menu gestao de disciplina
-        menu_gestao_disciplina = wait_menu.until(EC.element_to_be_clickable((By.XPATH,'/html/body/form/div[1]/div/div[1]/ul/li[2]/a')))
-        browser.find_element_by_xpath('/html/body/form/div[1]/div/div[1]/ul/li[2]/a').click()
+        menu_gestao_disciplina = wait_menu.until(EC.element_to_be_clickable((By.LINK_TEXT,'Gestão de Disciplina')))
+        browser.find_element_by_link_text('Gestão de Disciplina').click()
 
         # Menu principal do professor
-        menu_p_professor = wait_menu.until(EC.element_to_be_clickable((By.XPATH, '/html/body/form/div[1]/div/div[2]/div/div[2]/div/div/div/ul/li[2]/a/span')))
-        browser.find_element_by_xpath('/html/body/form/div[1]/div/div[1]/ul/li[2]/ul/li[2]/a/span').click()
+        menu_p_professor = wait_menu.until(EC.element_to_be_clickable((By.LINK_TEXT,'Menu Principal Professor')))
+        browser.find_element_by_link_text('Menu Principal Professor').click()
 
         # menu sala de aula
-        sala_aula = wait_menu.until(EC.element_to_be_clickable((By.XPATH,'/html/body/form/div[1]/div/div[2]/div/div[2]/div/div/div/ul/li[2]/a/span')))
-        browser.find_element_by_xpath('/html/body/form/div[1]/div/div[2]/div/div[2]/div/div/div/ul/li[2]/a/span').click()
+        sala_aula = wait_menu.until(EC.element_to_be_clickable((By.LINK_TEXT,'Sala Aula')))
+        browser.find_element_by_link_text('Sala Aula').click()
 
         #submenu resumo do dia
-        resumo_dia = wait_menu.until(EC.element_to_be_clickable((By.XPATH,'/html/body/form/div[1]/div/div[2]/div/div[2]/div/div/div/div/div[2]/div/div/div/div/div/a[2]/span')))
-        browser.find_element_by_xpath('/html/body/form/div[1]/div/div[2]/div/div[2]/div/div/div/div/div[2]/div/div/div/div/div/a[2]/span').click()
+        resumo_dia = wait_menu.until(EC.element_to_be_clickable((By.LINK_TEXT,'Resumo do dia')))
+        browser.find_element_by_link_text('Resumo do dia').click()
 
     except TimeoutException:
         print("Timed out waiting for summary_page to load")
