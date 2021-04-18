@@ -16,10 +16,9 @@ from time import sleep
 
 
 browser = webdriver.Firefox()
+browser.get('https://nosiapps.gov.cv/redglobal/redglobal.glb_dispatcher.login')
 
 def login():
-
-    browser.get('https://nosiapps.gov.cv/redglobal/redglobal.glb_dispatcher.login')
 
     for i in range (0,2):
 
@@ -34,8 +33,10 @@ def login():
             browser.find_element_by_name('p_password').send_keys(config.password)
 
             button = wait_login.until(EC.element_to_be_clickable((By.NAME, 'p_button')))
+            sleep(1)
             browser.find_element_by_name('p_button').click()
-            sleep(4)
+
+            sleep(3)
 
         except TimeoutException:
             print("Timed out waiting for login page to load")
