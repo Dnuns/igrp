@@ -26,7 +26,6 @@ from bs4 import BeautifulSoup as bs
 from time import sleep
 
 
-# I PART
 driver = webdriver.Firefox()
 driver.get('https://nosiapps.gov.cv/redglobal/redglobal.glb_dispatcher.login')
 
@@ -36,16 +35,16 @@ def login():
     for i in range (0,2):
 
         try:
-            wait_login = WebDriverWait(driver, 20)
-            utilizador = wait_login.until(EC.element_to_be_clickable((By.NAME, 'p_login')))
+            wait = WebDriverWait(driver, 20)
+            utilizador = wait.until(EC.element_to_be_clickable((By.NAME, 'p_login')))
             driver.find_element_by_name('p_login').send_keys(config.username)
 
             Keys.TAB
 
-            password = wait_login.until(EC.element_to_be_clickable((By.NAME, 'p_password')))
+            password = wait.until(EC.element_to_be_clickable((By.NAME, 'p_password')))
             driver.find_element_by_name('p_password').send_keys(config.password)
 
-            button = wait_login.until(EC.element_to_be_clickable((By.NAME, 'p_button')))
+            button = wait.until(EC.element_to_be_clickable((By.NAME, 'p_button')))
             sleep(1)
             driver.find_element_by_name('p_button').click()
 
@@ -54,36 +53,43 @@ def login():
         except TimeoutException:
             print("Timed out waiting for login page to load")
 
+
 def abrir_menu():
 
     try:
 
         #icone
-        wait_menu = WebDriverWait(driver,20)
-        icon = wait_menu.until(EC.element_to_be_clickable((By.CLASS_NAME,'app-icon')))
+        wait = WebDriverWait(driver,20)
+        icon = wait.until(EC.element_to_be_clickable((By.CLASS_NAME,'app-icon')))
         driver.find_element_by_class_name('app-icon').click()
 
         #abrir o menu
-        menu_lateral = wait_menu.until(EC.element_to_be_clickable((By.ID,'side-bar-ctrl')))
+        menu_lateral = wait.until(EC.element_to_be_clickable((By.ID,'side-bar-ctrl')))
         driver.find_element_by_id('side-bar-ctrl').click()
 
         #Menu gestao de disciplina
-        menu_gestao_disciplina = wait_menu.until(EC.element_to_be_clickable((By.LINK_TEXT,'Gestão de Disciplina')))
+        menu_gestao_disciplina = wait.until(EC.element_to_be_clickable((By.LINK_TEXT,'Gestão de Disciplina')))
         driver.find_element_by_link_text('Gestão de Disciplina').click()
 
         #Menu principal do professor
-        menu_p_professor = wait_menu.until(EC.element_to_be_clickable((By.LINK_TEXT,'Menu Principal Professor')))
+        menu_p_professor = wait.until(EC.element_to_be_clickable((By.LINK_TEXT,'Menu Principal Professor')))
         driver.find_element_by_link_text('Menu Principal Professor').click()
-
-        gestao_disciplina = esperar.until(EC.element_to_be_clickable((By.XPATH, '/html/body/form/div[1]/div/div[2]/div/div[2]/div/div/div/ul/li[3]/a/span')))
-        driver.find_element_by_xpath('/html/body/form/div[1]/div/div[2]/div/div[2]/div/div/div/ul/li[3]/a/span').click()# menu gestao_disciplina horizontal
-
-        driver.find_element_by_xpath('/html/body/form/div[1]/div/div[2]/div/div[2]/div/div/div/div/div[3]/div/div/div/div/div/a[3]/span').click()# atribuir notas
 
     except TimeoutException:
         print("Timed out waiting for summary_page to load")
 
+def get_student_list():
 
+    try:
+        wait = WebDriverWait(driver,20)
+        gestao_disciplina = wait.until(EC.element_to_be_clickable((By.XPATH, '/html/body/form/div[1]/div/div[2]/div/div[2]/div/div/div/ul/li[3]/a/span')))
+        driver.find_element_by_xpath('/html/body/form/div[1]/div/div[2]/div/div[2]/div/div/div/ul/li[3]/a/span').click()# menu gestao_disciplina horizontal
+
+        atribuir_notas = wait.until(EC.element_to_be_clickable((By.XPATH, '/html/body/form/div[1]/div/div[2]/div/div[2]/div/div/div/div/div[3]/div/div/div/div/div/a[3]/span')))
+        driver.find_element_by_xpath('/html/body/form/div[1]/div/div[2]/div/div[2]/div/div/div/div/div[3]/div/div/div/div/div/a[3]/span').click()# atribuir notas
+
+    except TimeoutException:
+            print("Timed out waiting for list to be downloaded")
 
 
 # II PART
@@ -95,5 +101,6 @@ def abrir_menu():
 #Init the script
 login()
 abrir_menu()
+get_student_list()
 
 sleep(10)
