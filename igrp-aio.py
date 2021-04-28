@@ -1,5 +1,5 @@
 '''
-[ICOMPLETE]
+[INCOMPLETE]
 
 What the script does:
 
