@@ -25,7 +25,6 @@ from selenium.webdriver.common.by import By
 from bs4 import BeautifulSoup as bs
 from time import sleep
 
-
 driver = webdriver.Firefox()
 driver.get('https://nosiapps.gov.cv/redglobal/redglobal.glb_dispatcher.login')
 
@@ -87,6 +86,9 @@ def get_student_list():
 
         atribuir_notas = wait.until(EC.element_to_be_clickable((By.XPATH, '/html/body/form/div[1]/div/div[2]/div/div[2]/div/div/div/div/div[3]/div/div/div/div/div/a[3]/span')))
         driver.find_element_by_xpath('/html/body/form/div[1]/div/div[2]/div/div[2]/div/div/div/div/div[3]/div/div/div/div/div/a[3]/span').click()# atribuir notas
+
+        turma = wait.until(EC.element_to_be_clickable((By.CLASS_NAME,'select2-selection')))
+        driver.find_element_by_class_name('select2-selection').click()
 
     except TimeoutException:
             print("Timed out waiting for list to be downloaded")
