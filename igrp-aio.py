@@ -33,12 +33,13 @@ def login():
 
     for i in range (0,2):
 
+
         try:
             wait = WebDriverWait(driver, 20)
             utilizador = wait.until(EC.element_to_be_clickable((By.NAME, 'p_login')))
             driver.find_element_by_name('p_login').send_keys(config.username)
 
-            Keys.TAB
+            Keys.TAB    
 
             password = wait.until(EC.element_to_be_clickable((By.NAME, 'p_password')))
             driver.find_element_by_name('p_password').send_keys(config.password)
@@ -81,14 +82,14 @@ def get_student_list():
 
     try:
         wait = WebDriverWait(driver,20)
-        gestao_disciplina = wait.until(EC.element_to_be_clickable((By.XPATH, '/html/body/form/div[1]/div/div[2]/div/div[2]/div/div/div/ul/li[3]/a/span')))
-        driver.find_element_by_xpath('/html/body/form/div[1]/div/div[2]/div/div[2]/div/div/div/ul/li[3]/a/span').click()# menu gestao_disciplina horizontal
+        conselho_de_turma = wait.until(EC.element_to_be_clickable((By.XPATH, '/html/body/form/div[1]/div/div[2]/div/div[2]/div/div/div/ul/li[6]/a/span')))
+        driver.find_element_by_xpath('/html/body/form/div[1]/div/div[2]/div/div[2]/div/div/div/ul/li[6]/a/span').click()# menu conselho_de_turma
 
-        atribuir_notas = wait.until(EC.element_to_be_clickable((By.XPATH, '/html/body/form/div[1]/div/div[2]/div/div[2]/div/div/div/div/div[3]/div/div/div/div/div/a[3]/span')))
-        driver.find_element_by_xpath('/html/body/form/div[1]/div/div[2]/div/div[2]/div/div/div/div/div[3]/div/div/div/div/div/a[3]/span').click()# atribuir notas
+        pauta_registo = wait.until(EC.element_to_be_clickable((By.XPATH, '/html/body/form/div[1]/div/div[2]/div/div[2]/div/div/div/div/div[6]/div/div/div/div/div/a[1]/span')))
+        driver.find_element_by_xpath('/html/body/form/div[1]/div/div[2]/div/div[2]/div/div/div/div/div[6]/div/div/div/div/div/a[1]/span').click()# pauta registo
 
-        turma = wait.until(EC.element_to_be_clickable((By.CLASS_NAME,'select2-selection')))
-        driver.find_element_by_class_name('select2-selection').click()
+        turma = wait.until(EC.element_to_be_clickable((By.ELEMENT,"by='id', value='select2-p_anoturmadisc-mg-container'")))
+        driver.find_element_by_element(by='id', value='select2-p_anoturmadisc-mg-container').click()
 
     except TimeoutException:
             print("Timed out waiting for list to be downloaded")
