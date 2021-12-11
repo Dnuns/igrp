@@ -16,26 +16,25 @@ from time import sleep
 
 
 driver = webdriver.Firefox()
-driver.get('https://nosiapps.gov.cv/redglobal/redglobal.glb_dispatcher.login')
-
+driver.get('https://nosiapps.gov.cv/redglobal/redglobal.glb_dispatcher.login') #works but Nosi made a new page to loggin
 
 def login():
 
-    for i in range (0,2):
+    for i in range (0,1):
 
         try:
             wait_login = WebDriverWait(driver, 20)
-            utilizador = wait_login.until(EC.element_to_be_clickable((By.NAME, 'p_login')))
-            driver.find_element_by_name('p_login').send_keys(config.username)
+            utilizador = wait_login.until(EC.element_to_be_clickable((By.ID, 'usernameUserInput')))
+            driver.find_element_by_id('usernameUserInput').send_keys(config.username)
 
             Keys.TAB
 
-            password = wait_login.until(EC.element_to_be_clickable((By.NAME, 'p_password')))
-            driver.find_element_by_name('p_password').send_keys(config.password)
+            password = wait_login.until(EC.element_to_be_clickable((By.ID, 'password')))
+            driver.find_element_by_id('password').send_keys(config.password)
 
-            button = wait_login.until(EC.element_to_be_clickable((By.NAME, 'p_button')))
+            button = wait_login.until(EC.element_to_be_clickable((By.CLASS_NAME, 'btn p-1 btn-block rounded-0 mt-4 text-uppercase text-white fs-14 bg-dark')))
             sleep(1)
-            driver.find_element_by_name('p_button').click()
+            driver.find_element_by_class_name('btn p-1 btn-block rounded-0 mt-4 text-uppercase text-white fs-14 bg-dark').click()
 
             sleep(3)
 
