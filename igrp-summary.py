@@ -20,32 +20,30 @@ driver.get('https://nosiapps.gov.cv/redglobal/redglobal.glb_dispatcher.login') #
 
 def login():
 
-    for i in range (0,1):
+    try:
+        wait_login = WebDriverWait(driver, 30)
+        utilizador = wait_login.until(EC.element_to_be_clickable((By.ID, 'usernameUserInput')))
+        driver.find_element_by_id('usernameUserInput').send_keys(config.username)
 
-        try:
-            wait_login = WebDriverWait(driver, 20)
-            utilizador = wait_login.until(EC.element_to_be_clickable((By.ID, 'usernameUserInput')))
-            driver.find_element_by_id('usernameUserInput').send_keys(config.username)
+        Keys.TAB
 
-            Keys.TAB
+        password = wait_login.until(EC.element_to_be_clickable((By.ID, 'password')))
+        driver.find_element_by_id('password').send_keys(config.password)
 
-            password = wait_login.until(EC.element_to_be_clickable((By.ID, 'password')))
-            driver.find_element_by_id('password').send_keys(config.password)
+        button = wait_login.until(EC.element_to_be_clickable((By.XPATH, '//button[@class="btn p-1 btn-block rounded-0 mt-4 text-uppercase text-white fs-14 bg-dark"]')))
+        sleep(1)        
+        driver.find_element_by_xpath('//button[@class="btn p-1 btn-block rounded-0 mt-4 text-uppercase text-white fs-14 bg-dark"]').click()
 
-            button = wait_login.until(EC.element_to_be_clickable((By.CLASS_NAME, 'btn p-1 btn-block rounded-0 mt-4 text-uppercase text-white fs-14 bg-dark')))
-            sleep(1)
-            driver.find_element_by_class_name('btn p-1 btn-block rounded-0 mt-4 text-uppercase text-white fs-14 bg-dark').click()
+        sleep(3)
 
-            sleep(3)
-
-        except TimeoutException:
-            print("Timed out waiting for login page to load")
+    except TimeoutException:
+        print("Timed out waiting for login page to load")
 
 def summary_page():
 
     try:
         #icone
-        wait_menu = WebDriverWait(driver,20)
+        wait_menu = WebDriverWait(driver,30)
         icon = wait_menu.until(EC.element_to_be_clickable((By.CLASS_NAME,'app-icon')))
         driver.find_element_by_class_name('app-icon').click()
 
