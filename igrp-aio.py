@@ -31,27 +31,21 @@ driver.get('https://nosiapps.gov.cv/redglobal/redglobal.glb_dispatcher.login')
 
 def login():
 
-    for i in range (0,2):
+    try:
+        wait_login = WebDriverWait(driver, 30)
+        utilizador = wait_login.until(EC.element_to_be_clickable((By.ID, 'usernameUserInput')))
+        driver.find_element_by_id('usernameUserInput').send_keys(config.username)
 
+        Keys.TAB
 
-        try:
-            wait = WebDriverWait(driver, 20)
-            utilizador = wait.until(EC.element_to_be_clickable((By.NAME, 'p_login')))
-            driver.find_element_by_name('p_login').send_keys(config.username)
+        password = wait_login.until(EC.element_to_be_clickable((By.ID, 'password')))
+        driver.find_element_by_id('password').send_keys(config.password)
 
-            Keys.TAB    
+        button = wait_login.until(EC.element_to_be_clickable((By.XPATH, '//button[@class="btn p-1 btn-block rounded-0 mt-4 text-uppercase text-white fs-14 bg-dark"]')))
+        driver.find_element_by_xpath('//button[@class="btn p-1 btn-block rounded-0 mt-4 text-uppercase text-white fs-14 bg-dark"]').click()
 
-            password = wait.until(EC.element_to_be_clickable((By.NAME, 'p_password')))
-            driver.find_element_by_name('p_password').send_keys(config.password)
-
-            button = wait.until(EC.element_to_be_clickable((By.NAME, 'p_button')))
-            sleep(1)
-            driver.find_element_by_name('p_button').click()
-
-            sleep(3)
-
-        except TimeoutException:
-            print("Timed out waiting for login page to load")
+    except TimeoutException:
+        print("Timed out waiting for login page to load")
 
 
 def abrir_menu():
