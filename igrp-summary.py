@@ -31,10 +31,7 @@ def login():
         driver.find_element_by_id('password').send_keys(config.password)
 
         button = wait_login.until(EC.element_to_be_clickable((By.XPATH, '//button[@class="btn p-1 btn-block rounded-0 mt-4 text-uppercase text-white fs-14 bg-dark"]')))
-        sleep(1)        
         driver.find_element_by_xpath('//button[@class="btn p-1 btn-block rounded-0 mt-4 text-uppercase text-white fs-14 bg-dark"]').click()
-
-        sleep(3)
 
     except TimeoutException:
         print("Timed out waiting for login page to load")
