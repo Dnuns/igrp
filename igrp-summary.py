@@ -20,8 +20,7 @@ class igrp_script:
 
     def __init__(self, web_driver_arg):
        driver = web_driver_arg 
-
-#    def setup(self):
+       
 
     def login(self):
 
@@ -58,7 +57,8 @@ class igrp_script:
 
         except TimeoutException:
             print("Timed out waiting for login page to load")
-    
+
+
     def summary_page(self):
 
         try:
@@ -91,9 +91,7 @@ class igrp_script:
 
         except TimeoutException:
             print("Timed out waiting for absence_page to load")
-    
-    
-    
+
 
 if __name__ == '__main__':
     
