@@ -3,7 +3,9 @@ What the script does:
     + sign in to Nosi's website;
     + place the user and password;
     + go to SIGE (Sistema Integrado de Gestao Escolar | Integrated School Management System);
-    + Go to the field write summary
+    + go to the field write summary
+    + go to the field of absence
+    + go to the fiel to download the list of students
 '''
 import config
 from selenium import webdriver
