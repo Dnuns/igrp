@@ -5,7 +5,7 @@ What the script does:
     + go to SIGE (Sistema Integrado de Gestao Escolar | Integrated School Management System);
     + go to the field write summary
     + go to the field of absence
-    + go to the fiel to download the list of students
+    + go to the field to download the list of students
 
 version 2.0 
 '''
@@ -102,7 +102,7 @@ if __name__ == '__main__':
     igrp_instance.login()
 
     while True:
-        option = str(input('What do you want to do? \n1- whrite summary \n2- get absence \n3- quit\n'))
+        option = str(input('What do you want to do? \n1- write summary \n2- get absence \n3- quit\n'))
 
         if option == '1':
             igrp_instance.write_summary()
