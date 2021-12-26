@@ -61,7 +61,7 @@ class igrp_script:
             print("Timed out waiting for login page to load")
 
 
-    def summary_page(self):
+    def write_summary(self):
 
         try:
 
@@ -78,7 +78,7 @@ class igrp_script:
             print("Timed out waiting for summary_page to load")
 
 
-    def absence_page(self):
+    def get_absence(self):
 
         try:
 
@@ -105,9 +105,9 @@ if __name__ == '__main__':
         option = str(input('What do you want to do. \n1- whrite summary \n2- get absence \n3- quit\n'))
 
         if option == '1':
-            igrp_instance.summary_page()
+            igrp_instance.write_summary()
         elif option == '2':
-            igrp_instance.absence_page()
+            igrp_instance.get_absence()
         elif option == '3':
             driver.quit()
             break
