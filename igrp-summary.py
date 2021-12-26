@@ -33,12 +33,6 @@ def login():
         button = wait_login.until(EC.element_to_be_clickable((By.XPATH, '//button[@class="btn p-1 btn-block rounded-0 mt-4 text-uppercase text-white fs-14 bg-dark"]')))
         driver.find_element_by_xpath('//button[@class="btn p-1 btn-block rounded-0 mt-4 text-uppercase text-white fs-14 bg-dark"]').click()
 
-    except TimeoutException:
-        print("Timed out waiting for login page to load")
-
-def summary_page():
-
-    try:
         #icone
         wait_menu = WebDriverWait(driver,30)
         icon = wait_menu.until(EC.element_to_be_clickable((By.CLASS_NAME,'app-icon')))
@@ -56,7 +50,15 @@ def summary_page():
         menu_p_professor = wait_menu.until(EC.element_to_be_clickable((By.LINK_TEXT,'Menu Principal Professor')))
         driver.find_element_by_link_text('Menu Principal Professor').click()
 
+    except TimeoutException:
+        print("Timed out waiting for login page to load")
+
+def summary_page():
+
+    try:
+
         #menu sala de aula
+        wait_menu = WebDriverWait(driver,30)
         sala_aula = wait_menu.until(EC.element_to_be_clickable((By.LINK_TEXT,'Sala Aula')))
         driver.find_element_by_link_text('Sala Aula').click()
 
@@ -67,6 +69,23 @@ def summary_page():
     except TimeoutException:
         print("Timed out waiting for summary_page to load")
 
+
+def absence_page():
+    try:
+
+        #menu sala de aula
+        wait_menu = WebDriverWait(driver,30)
+        diretor_de_turma = wait_menu.until(EC.element_to_be_clickable((By.LINK_TEXT,'Diretor Turma')))
+        driver.find_element_by_link_text('Diretor Turma').click()
+
+        #submenu resumo do dia
+        resumo_dia = wait_menu.until(EC.element_to_be_clickable((By.LINK_TEXT,'Alunos - Faltas e Notas')))
+        driver.find_element_by_link_text('Alunos - Faltas e Notas').click()
+
+    except TimeoutException:
+        print("Timed out waiting for absence_page to load")
+
 #Init the script
 login()
-summary_page()
+#summary_page()
+absence_page()
