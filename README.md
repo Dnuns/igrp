@@ -1,9 +1,7 @@
 # igrp-scripts
 
-## Incomplete
-
-Some scripts I use to automate my workflow at IGRP platform.
+Some scripts I use to automate my workflow (write summary, get absence list, get student list) at IGRP platform.
 The platform is in Portuguese so some words in the script are in this language.
-I used Selenium WebDriver and BeautifulSoup for web scraping.
+I used Selenium WebDriver.
 
 ![](img/summary.mkv)
