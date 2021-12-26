@@ -7,7 +7,7 @@ What the script does:
     + go to the field of absence
     + go to the fiel to download the list of students
 
-version 1.2 
+version 2.0 
 '''
 import config
 from selenium import webdriver
