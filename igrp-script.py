@@ -6,6 +6,8 @@ What the script does:
     + go to the field write summary
     + go to the field of absence
     + go to the fiel to download the list of students
+
+version 1.2 
 '''
 import config
 from selenium import webdriver
