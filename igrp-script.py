@@ -80,12 +80,12 @@ class igrp_script:
 
         try:
 
-            #menu sala de aula
+            #menu diretor de turma
             wait_menu = WebDriverWait(driver,30)
             diretor_de_turma = wait_menu.until(EC.element_to_be_clickable((By.LINK_TEXT,'Diretor Turma')))
             driver.find_element_by_link_text('Diretor Turma').click()
 
-            #submenu resumo do dia
+            #submenu alunos - faltas e notas
             resumo_dia = wait_menu.until(EC.element_to_be_clickable((By.LINK_TEXT,'Alunos - Faltas e Notas')))
             driver.find_element_by_link_text('Alunos - Faltas e Notas').click()
 
