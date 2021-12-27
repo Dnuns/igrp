@@ -102,7 +102,7 @@ if __name__ == '__main__':
     igrp_instance.login()
 
     while True:
-        option = str(input('What do you want to do? \n1- write summary \n2- get absence \n3- quit\n'))
+        option = str(input('What do you want to do? \n1- write summary \n2- get absence list \n3- quit\n'))
 
         if option == '1':
             igrp_instance.write_summary()
