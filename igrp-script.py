@@ -95,6 +95,11 @@ class igrp_script():
 
         except TimeoutException:
             print("Timed out waiting for absence_page to load")
+    
+    def get_students_and_parents_code(self):
+        pass
+        #I have to import beautifulSoup and xml??
+        #code implementation
 
 
 if __name__ == '__main__':
