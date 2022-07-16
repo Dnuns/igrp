@@ -10,8 +10,7 @@ Python, Selenium, Shell script
 
 ## Preview
 
-![](img/summary.mkv)
-
+![](project-img.jpg)
 
 ## Author
 
