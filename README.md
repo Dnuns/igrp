@@ -8,10 +8,6 @@ I used Selenium WebDriver.
 
 Python, Selenium, Shell script
 
-## Preview
-
-![](project-img.jpg)
-
 ## Author
 
 - [David Nunes](https://www.github.com/Dnuns)
