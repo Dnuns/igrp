@@ -103,7 +103,15 @@ $RECYCLE.BIN/
 #added by me
 *.gz
 *.log
-config.py
 __pycache__
+
+# secrets and local environment - never commit these
+.env
+config.py
+.venv/
+venv/
+
+# generated absence reports
+downloads/
 
 # End of https://www.toptal.com/developers/gitignore/api/vscode,vim,linux,windows,macos

@@ -1,0 +1,12 @@
+# Runtime dependencies for igrp-script.py
+#
+# selenium>=4.6 uses Selenium Manager, which downloads/manages the browser
+# driver automatically. No manual geckodriver/chromedriver setup is required.
+selenium>=4.6,<5
+
+# Loads credentials from a local .env file (optional: the script also works
+# with plain environment variables or interactive prompts).
+python-dotenv>=1.0,<2
+
+# Reads/writes the Excel (.xlsx) grade template used by menu options 3 and 4.
+openpyxl>=3.1,<4
